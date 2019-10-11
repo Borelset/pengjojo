@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<html manifest="jojo.appcache">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Home</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">点名</a></li>
+                <li><a href="reward.html">奖励</a></li>
+                <!--
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+                -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="dianming" class="panel panel-default" style="margin-left: 10%; margin-right: 10%">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            点名
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div align="center">
+            <h1 id="namescreen">点名啦</h1></br>
+        </div>
+        <div align="center">
+            <button id="startbutton"  class="btn btn-primary  btn-lg">开始</button>
+            <button id="endbutton"  class="btn btn-success  btn-lg">结束</button>
+        </div>
+    </div>
+</div>
+<script>
+    var start = document.getElementById("startbutton");
+    var end = document.getElementById("endbutton");
+    var screen = document.getElementById("namescreen");
+    var interval = null;
+    var names=new Array("曾绍恒", "陈昊阳", "陈奕舸", "陈语丹", "邓琳娜", "邓伊涵", "邓毅豪", "邓懿辰", "丁绪行", "杜彦希", "方敬", "付梓萱", "桂一菲", "黄恩平", "黄凯翊", "黄梦轩", "贾婷萱", "江宏博", "雷梓悦", "李博硕", "李辰恺", "李卓冉", "林明熙", "刘羽晨", "刘子墨", "路子墨", "彭昊", "邱建锟", "邱以晴", "谭陈骏", "谭欣睿", "涂天骄", "王鹤骞", "韦雅曦", "肖渝阳", "徐翊宸", "许哲岚", "杨歆艺", "杨梓雯", "叶思彤", "张浩轩", "张骏祥", "张思浩", "钟嘉朗", "周玉婷", "周祖瑶", "庄雅桐")
+    var length = names.length;
+    var index = 0;
+    function fresh(){
+        screen.innerText = names[index%length];
+        index++;
+    }
+    start.onclick = function () {
+        console.log("start");
+        if(interval!=null){//判断计时器是否为空
+            clearInterval(interval);
+            interval=null;
+        }
+        interval = setInterval(fresh,50);
+    };
+    end.onclick = function () {
+        console.log("end");
+        clearInterval(interval);
+        interval = null;
+
+    };
+
+</script>
+<div align="center">
+    Copyright © JOJO 2019
+    Powered by Borelset
+</div>
+</body>
+</html>

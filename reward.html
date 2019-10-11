@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<html manifest="jojo.appcache">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Home</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="call.html">点名</a></li>
+                <li><a href="#">奖励</a></li>
+                <!--
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+                -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="gacha" class="panel panel-default" style="margin-left: 10%; margin-right: 10%">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            抽奖
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div align="center">
+            <img src="jojo/title.png" id="giftscreen" width="500" height="350"></br>
+        </div>
+        <div align="center">
+            <button id="startbutton2"  class="btn btn-primary  btn-lg">开始</button>
+            <button id="endbutton2"  class="btn btn-success  btn-lg">结束</button>
+        </div>
+    </div>
+</div>
+<!-- 这里是js部分 -->
+<script>
+    var start2 = document.getElementById("startbutton2");
+    var end2 = document.getElementById("endbutton2");
+    var screen2 = document.getElementById("giftscreen");
+    var interval2 = null;
+    var path=new Array("jojo/2.png", "jojo/3.png", "jojo/4.png", "jojo/1.jpg")
+    var length2 = path.length;
+    console.log(length2);
+    var index2 = 0;
+    function fresh2(){
+        screen2.src = path[index2%length2];
+        console.log(index2%length2);
+        index2++;
+    }
+    start2.onclick = function () {
+        console.log("start");
+        if(interval2!=null){//判断计时器是否为空
+            clearInterval(interval2);
+            interval2=null;
+        }
+        interval2 = setInterval(fresh2,100);
+    };
+    end2.onclick = function () {
+        console.log("end");
+        clearInterval(interval2);
+        interval2 = null;
+
+    };
+</script>
+<div align="center">
+    Copyright © JOJO 2019
+    Powered by Borelset
+</div>
+</body>
+</html>

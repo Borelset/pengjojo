@@ -5,77 +5,77 @@
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="author" content="Borelset">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
     <title>一（4）班</title>
 </head>
 <body>
-<!-- 这里是HTML结构部分 -->
-<div id="dianming">
-    <h2 id="namescreen">aaa</h2></br>
-    <button id="startbutton">开始</button>
-    <button id="endbutton">结束</button>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Home</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="call.html">点名</a></li>
+                <li><a href="reward.html">奖励</a></li>
+                <!--
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+                -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="myCarousel" class="carousel slide"  style="margin-left: 20%; margin-right: 20%">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="photo/1.jpg" alt="First slide" width="300" height="400">
+        </div>
+        <div class="item">
+            <img src="photo/2.jpg" alt="Second slide" width="533" height="400">
+        </div>
+        <div class="item">
+            <img src="photo/3.jpg" alt="Third slide" width="300" height="400">
+        </div>
+        <div class="item">
+            <img src="photo/4.jpg" alt="Fourth slide" width="300" height="400">
+        </div>
+    </div>
+    <!-- 轮播（Carousel）导航 -->
+    <a class="carousel-control left" href="#myCarousel"
+       data-slide="prev"> <span _ngcontent-c3="" aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+    <a class="carousel-control right" href="#myCarousel"
+       data-slide="next">&rsaquo;</a>
 </div>
-<script>
-    var start = document.getElementById("startbutton");
-    var end = document.getElementById("endbutton");
-    var screen = document.getElementById("namescreen");
-    var interval = null;
-    var names=new Array("曾绍恒", "陈昊阳", "陈奕舸", "陈语丹", "邓琳娜", "邓伊涵", "邓毅豪", "邓懿辰", "丁绪行", "杜彦希", "方敬", "付梓萱", "桂一菲", "黄恩平", "黄凯翊", "黄梦轩", "贾婷萱", "江宏博", "雷梓悦", "李博硕", "李辰恺", "李卓冉", "林明熙", "刘羽晨", "刘子墨", "路子墨", "彭昊", "邱建锟", "邱以晴", "谭陈骏", "谭欣睿", "涂天骄", "王鹤骞", "韦雅曦", "肖渝阳", "徐翊宸", "许哲岚", "杨歆艺", "杨梓雯", "叶思彤", "张浩轩", "张骏祥", "张思浩", "钟嘉朗", "周玉婷", "周祖瑶", "庄雅桐")
-    var length = names.length;
-    var index = 0;
-    function fresh(){
-        screen.innerText = names[index%length];
-        index++;
-    }
-    start.onclick = function () {
-        console.log("start");
-        if(interval!=null){//判断计时器是否为空
-            clearInterval(interval);
-            interval=null;
-        }
-        interval = setInterval(fresh,50);
-    };
-    end.onclick = function () {
-        console.log("end");
-        clearInterval(interval);
-        interval = null;
 
-    };
-
-</script>
-<div id="gacha">
-    <img src="jojo/title.png" id="giftscreen">
-    <button id="startbutton2">开始</button>
-    <button id="endbutton2">结束</button>
+<div align="center">
+    Copyright © JOJO 2019
+    Powered by Borelset
 </div>
-<!-- 这里是js部分 -->
-<script>
-    var start2 = document.getElementById("startbutton2");
-    var end2 = document.getElementById("endbutton2");
-    var screen2 = document.getElementById("giftscreen");
-    var interval2 = null;
-    var path=new Array("jojo/2.png", "jojo/3.png", "jojo/4.png", "jojo/1.jpg")
-    var length2 = path.length;
-    console.log(length2);
-    var index2 = 0;
-    function fresh2(){
-        screen2.src = path[index2%length2];
-        console.log(index2%length2);
-        index2++;
-    }
-    start2.onclick = function () {
-        console.log("start");
-        if(interval2!=null){//判断计时器是否为空
-            clearInterval(interval2);
-            interval2=null;
-        }
-        interval2 = setInterval(fresh2,100);
-    };
-    end2.onclick = function () {
-        console.log("end");
-        clearInterval(interval2);
-        interval2 = null;
-
-    };
-</script>
 </body>
 </html>
